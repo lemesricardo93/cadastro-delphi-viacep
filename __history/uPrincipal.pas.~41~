@@ -1,0 +1,113 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,REST.Client, REST.Types,
+  Data.Bind.Components, Data.Bind.ObjectScope, Data.DB, Vcl.Grids, Vcl.DBGrids,uModule,Vcl.Dialogs.MessageDlg;
+
+type
+  TForm1 = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    edtNome: TEdit;
+    Label2: TLabel;
+    edtCep: TEdit;
+    Label3: TLabel;
+    btnBuscarCep: TButton;
+    Label4: TLabel;
+    edtEndereco: TEdit;
+    Label5: TLabel;
+    edtBairro: TEdit;
+    edtCidade: TEdit;
+    Label6: TLabel;
+    Label7: TLabel;
+    edtUF: TEdit;
+    DBGrid1: TDBGrid;
+    btnSalvar: TButton;
+    btnInserir: TButton;
+    DataSource1: TDataSource;
+    Label8: TLabel;
+    edtComplemento: TEdit;
+    procedure btnInserirClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnBuscarCepClick(Sender: TObject);
+    procedure edtCepKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnSalvarClick(Sender: TObject);
+begin
+
+if MessageDlg('Deseja incluir os registros ?', [mbYes, mbNo])  = mbYes then
+begin
+
+end;
+
+
+     DataModule2.ADOQuery1.Close;
+  DataModule2.ADOQuery1.SQL.Clear;
+
+
+
+   DataModule2.ClientDataSet1.First;
+
+ while not   DataModule2.ClientDataSet1.Eof do
+   begin
+
+     DataModule2.ADOQuery1.SQL.Add('INSERT INTO USUARIO(ID, nome) VALUES(:ID,:NOME)');
+       DataModule2.ADOQuery1.Parameters.ParamByName('NOME').Value := DataModule2.ClientDataSet1.FieldByName('nome').AsString;
+
+         DataModule2.ADOQuery1.ExecSQL;
+
+     DataModule2.ClientDataSet1.Next;
+
+  end;
+end;
+
+procedure TForm1.edtCepKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   if(Length(edtCep.Text) > 7) then
+    begin
+      btnBuscarCep.Enabled := true;
+    end
+    else
+     btnBuscarCep.Enabled := false;
+end;
+
+procedure TForm1.btnBuscarCepClick(Sender: TObject);
+var
+ dadosCep : TStringList;
+
+begin
+  dadosCep            :=  DataModule2.buscarCep(edtCep.Text);
+  edtEndereco.Text    := dadosCep[0];
+  edtBairro.Text      := dadosCep[1];
+  edtUF.Text          := dadosCep[2];
+  edtCidade.Text      := dadosCep[3];
+  edtComplemento.Text := dadosCep[4];
+
+end;
+
+procedure TForm1.btnInserirClick(Sender: TObject);
+begin
+
+   DataModule2.inserirRegistro(edtNome.Text,edtEndereco.Text,edtCep.Text, edtBairro.Text, edtComplemento.Text, edtCidade.Text, edtUf.Text  );
+
+   btnSalvar.Enabled  := not DataModule2.ClientDataSet1.IsEmpty;
+end;
+
+end.

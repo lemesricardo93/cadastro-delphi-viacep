@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/10/27 12:53:16.000.521,=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/11/04 12:06:35.000.855,=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/11/04 12:09:05.000.479,=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/11/05 18:29:46.752,=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/11/05 18:42:12.394,=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/11/05 19:20:03.155,C:\Projetos\Delphi\Cadastro\uPrincipal.dfm=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/11/05 19:20:03.155,C:\Projetos\Delphi\Cadastro\uPrincipal.pas=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/11/05 19:20:16.000,C:\Projetos\Delphi\Cadastro\uModule.pas=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/11/05 19:20:16.000,C:\Projetos\Delphi\Cadastro\uModule.dfm=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2023/11/05 19:20:31.585,C:\Projetos\Delphi\Cadastro\Cadastro.dproj=C:\Users\ricar\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
